@@ -5,22 +5,26 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                @if ($user = 'manager')
-                    <div class="card-header">{{ __('Manager Login') }}</div>
-                    <form method="POST" action="{{ url('manager_login') }}">
+                @isset($acc)
+                    @if ($acc == 'manager')
+                        <div class="card-header">{{ __('Manager Login') }}</div>
+                        <form method="POST" action="{{ url('manager_login') }}">
 
-                @elseif ($user = 'stockKeeper')
-                    <div class="card-header">{{ __('Stock Keeper Login') }}</div>
-                    <form method="POST" action="{{ url('stockKeeper_login') }}">
+                    @elseif ($acc == 'stockKeeper')
+                        <div class="card-header">{{ __('Stock Keeper Login') }}</div>
+                        <form method="POST" action="{{ url('stockKeeper_login') }}">
 
-                @elseif ($user = 'cashier')
-                    <div class="card-header">{{ __('Cashier Login') }}</div>
-                    <form method="POST" action="{{ url('cashier_login') }}">
-
+                    @elseif ($acc == 'cashier')
+                        <div class="card-header">{{ __('Cashier Login') }}</div>
+                        <form method="POST" action="{{ url('cashier_login') }}">
+                    @else
+                        <div class="card-header">{{ __('Login') }}</div>
+                        <form method="POST" action="#no_user">
+                    @endif
                 @else
                     <div class="card-header">{{ __('Login') }}</div>
                     <form method="POST" action="#no_user">
-                @endif
+                @endisset
                 <div class="card-body">
                     @csrf
                     <div class="form-group row">

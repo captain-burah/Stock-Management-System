@@ -4,11 +4,15 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Manager;
-use Illuminate\Http\Request;
+use App\StoreKeeper;
+use App\Cashier;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -72,6 +76,27 @@ class RegisterController extends Controller
         ]);
     }
     
+
+
+
+    //------ Show Login Forms ----------------
+    public function manager()
+    {
+        return view('auth.register', ['acc' => 'manager']);
+    }
+    public function stockKeeper()
+    {
+        return view('auth.register', ['acc' => 'stockKeeper']);
+    }
+    public function cashier()
+    {
+        return view('auth.register', ['acc' => 'cashier']);
+    }
+    
+
+
+
+    
     public function managerRegister(Request $request)
     {
         $validate = $this->validate($request, [
@@ -101,6 +126,70 @@ class RegisterController extends Controller
             //$user->gender = $request['gender'];
             //$user->push();
             return redirect('/manager-login');
+        }
+    }
+
+    public function storeKeeperRegister(Request $request)
+    {
+        $validate = $this->validate($request, [
+            'fname'  => 'required|string|max:191',
+            'lname'  => 'required|string|max:191',
+            'email'  => 'required|string|email|max:191|unique:managers',
+            'password' => 'required|string|min:6|confirmed',
+            'password_confirmation' => 'required| min:6',
+            //'privacyPolicy' => 'required|string',
+        ]);
+        if ($validate == true){
+            try{
+                StoreKeeper::create([
+                    'fname' => $request['fname'],
+                    'lname' => $request['lname'],
+                    'email' => $request['email'],
+                    'password' => Hash::make($request['password']),
+                    
+                ]);
+            } catch (\Exception $exception) {
+                $message = 'Failled to create a new database record for '.$request->email;
+                return dd($message);
+            }
+
+            //$user = new LecturerInfo();
+            //$user->lec_email = $request['email'];
+            //$user->gender = $request['gender'];
+            //$user->push();
+            return redirect('/stockKeeper-login');
+        }
+    }
+
+    public function cashierRegister(Request $request)
+    {
+        $validate = $this->validate($request, [
+            'fname'  => 'required|string|max:191',
+            'lname'  => 'required|string|max:191',
+            'email'  => 'required|string|email|max:191|unique:managers',
+            'password' => 'required|string|min:6|confirmed',
+            'password_confirmation' => 'required| min:6',
+            //'privacyPolicy' => 'required|string',
+        ]);
+        if ($validate == true){
+            try{
+                Cashier::create([
+                    'fname' => $request['fname'],
+                    'lname' => $request['lname'],
+                    'email' => $request['email'],
+                    'password' => Hash::make($request['password']),
+                    
+                ]);
+            } catch (\Exception $exception) {
+                $message = 'Failled to create a new database record for '.$request->email;
+                return dd($message);
+            }
+
+            //$user = new LecturerInfo();
+            //$user->lec_email = $request['email'];
+            //$user->gender = $request['gender'];
+            //$user->push();
+            return redirect('/cashier-login');
         }
     }
 }

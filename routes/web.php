@@ -19,12 +19,16 @@ Auth::routes();
 
 //--------Login Page routes
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/manager-login', 'HomeController@manager')->name('manager-login');
-Route::get('/tockKeeper-login', 'HomeController@stockKeeper')->name('stockKeeper-login');
-Route::get('/cashier-login', 'HomeController@cashier')->name('cashier-login');
+Route::get('/manager-login', 'Auth\LoginController@manager')->name('manager-login');
+Route::get('/stockKeeper-login', 'Auth\LoginController@stockKeeper')->name('stockKeeper-login');
+Route::get('/cashier-login', 'Auth\LoginController@cashier')->name('cashier-login');
+
+Route::get('/manager-register', 'Auth\RegisterController@manager')->name('cashier-register');
+Route::get('/storeKeeper-register', 'Auth\RegisterController@stockKeeper')->name('cashier-register');
+Route::get('/cashier-register', 'Auth\RegisterController@cashier')->name('cashier-register');
 //--------Login Page routes
 
-//--------Login Submission routes
+//--------Login Submission routes 
 Route::post('/manager_login', 'Auth\LoginController@managerLogin')->name('manager-verify');
 Route::post('/stockKeeper_login', 'Auth\LoginController@storeKeeperLogin')->name('stockKeeper-verify');
 Route::post('/cashier_login', 'Auth\LoginController@cashierLogin')->name('cashier-verify');
@@ -32,6 +36,8 @@ Route::post('/cashier_login', 'Auth\LoginController@cashierLogin')->name('cashie
 
 //--------Register Submission routes
 Route::post('/manager_register', 'Auth\RegisterController@managerRegister')->name('cashier-verify');
+Route::post('/storeKeeper_register', 'Auth\RegisterController@storeKeeperRegister')->name('cashier-verify');
+Route::post('/cashier_register', 'Auth\RegisterController@cashierRegister')->name('cashier-verify');
 //--------Register Submission routes
 
 

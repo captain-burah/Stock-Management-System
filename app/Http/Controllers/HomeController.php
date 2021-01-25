@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -21,21 +23,4 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function manager()
-    {
-        //$user = 'manager';
-        return view('auth.login', ['user' => 'manager']);
-    }
-
-    public function stockKeeper()
-    {
-        //$user = 'stockKeeper';
-        return view('auth.login', ['user' => 'stockKeeper']);
-    }
-
-    public function cashier()
-    {
-        //$user = 'cashier';
-        return view('auth.login', ['user' => 'cashier']);
-    }
 }

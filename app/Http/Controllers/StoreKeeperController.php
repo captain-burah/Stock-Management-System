@@ -17,7 +17,7 @@ class StoreKeeperController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:storekeeper');
+        $this->middleware('auth:storeKeeper');
     }
 
     public function dashboard(){

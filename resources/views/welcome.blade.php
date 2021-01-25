@@ -1,10 +1,14 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+
+
+        <!-- CSRF Token -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <script> window.laravel = { csrfToken: '{{ csrf_token() }}' } </script>
+        <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
         <title>Laravel</title>
 
         <!-- Fonts -->
@@ -69,7 +73,7 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="flex-center position-ref full-height" id="app">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -81,16 +85,28 @@
                 </div>
             @endif
  
-            <div class="content">
-                <div class="title m-b-md">
+            <div class="content col-md-12">
+                <div class="row mx-auto title m-b-md">
                     Stock Management System
                 </div>
-
-                <div class="links text-white">
-                    <a href="{{ url('manager-login')}}">Manager</a>
-                    <a href="{{ url('stockKeeper-login')}}">Stock Keeper</a>
-                    <a href="{{ url('cashier-login')}}">Cashier</a>
+                <div class="row">
+                    <div class="col-md-6 border-right border-dark">
+                        <h4 class="text- font-weight-bold">Login</h4>
+                        <div class="links text-white">
+                            <a href="{{ url('manager-login')}}">Manager</a>
+                            <a href="{{ url('stockKeeper-login')}}">Stock Keeper</a>
+                            <a href="{{ url('cashier-login')}}">Cashier</a>
+                        </div></div>
+                    <div class="col-md-6 border-left border-dark ">
+                        <h4 class="text- font-weight-bold">Register</h4>    
+                        <div class="links text-white">
+                            <a href="{{ url('manager-register')}}">Manager</a>
+                            <a href="{{ url('storeKeeper-register')}}">Stock Keeper</a>
+                            <a href="{{ url('cashier-register')}}">Cashier</a>
+                        </div>
+                    </div>
                 </div>
+                
             </div>
         </div>
     </body>

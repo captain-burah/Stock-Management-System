@@ -5,12 +5,28 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                @isset($acc)
+                        @if ($acc == 'manager')
+                            <div class="card-header">{{ __('Manager Register') }}</div>
+                            <form method="POST" action="{{ url('/manager_register') }}" aria-label="{{ __('Register') }}">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ url('/manager_register') }}" aria-label="{{ __('Register') }}">
+                        @elseif ($acc == 'stockKeeper')
+                            <div class="card-header">{{ __('Store Keeper Register') }}</div>
+                            <form method="POST" action="{{ url('/storeKeeper_register') }}" aria-label="{{ __('Register') }}">
+
+                        @elseif ($acc == 'cashier')
+                            <div class="card-header">{{ __('Cashier Register') }}</div>
+                            <form method="POST" action="{{ url('/cashier_register') }}" aria-label="{{ __('Register') }}">
+                        @else
+                            <div class="card-header">{{ __('Register') }}</div>
+                            <form method="POST" action="#no_user">
+                        @endif
+                    @else
+                        <div class="card-header">{{ __('Register') }}</div>
+                        <form method="POST" action="#no_user">
+                    @endisset
                         @csrf
-
+                    <div class="card-body">
                         <div class="form-group row">
                             <label for="fname" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
 
@@ -84,8 +100,8 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

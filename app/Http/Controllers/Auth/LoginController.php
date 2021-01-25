@@ -46,6 +46,30 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+
+
+
+
+    
+    //------ Show Login Forms ----------------
+    public function manager()
+    {
+        return view('auth.login', ['acc' => 'manager']);
+    }
+    public function stockKeeper()
+    {
+        return view('auth.login', ['acc' => 'stockKeeper']);
+    }
+    public function cashier()
+    {
+        return view('auth.login', ['acc' => 'cashier']);
+    }
+
+
+
+
+
+    //------ Submit & Validate Form Request ----------
     public function managerLogin(Request $request)
     {
         $this->validate($request, [
@@ -63,9 +87,8 @@ class LoginController extends Controller
         else{
             return back()->withInput($request->only('email', 'remember'));
         }
-
+ 
     }
-
     public function storeKeeperLogin(Request $request)
     {
         $this->validate($request, [
