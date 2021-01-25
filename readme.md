@@ -34,6 +34,8 @@ This system is built on standard features in stock management.
 - PHP 7.2
 - Node Modules
 - AdminLTE Design 3.0
+- Lodash
+- Popper.js
 
 ## System users: 
 - Manager 

@@ -1,4 +1,4 @@
-@extends('layouts.managerLayout')
+@extends('layouts.panelLayout')
 
 @section('masterContent')
 <div class="wrapper" id="app">
@@ -35,7 +35,7 @@
           <img src="{{ asset('img/manager.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">Mr. {{Auth::user()->fname}} {{Auth::user()->lname}}</a>
         </div>
       </div>
 
@@ -69,42 +69,51 @@
               </ul>
             </li>
             -->
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
+            <li class="nav-item py-1">
+              <router-link to="/sales_mgt" class="nav-link text-white">
+                <i class="nav-icon fas fa-dollar-sign"></i>
                 <p>
                   Sales Mgt
-                  <span class="right badge badge-danger">New</span>
                 </p>
-              </a>
+              </router-link>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-th"></i>
+            <li class="nav-item py-2">
+              <router-link to="/stocks_mgt"  class="nav-link text-white">
+                    <i class="nav-icon fas fa-palette "></i>
                     <p>
                     Stocks Mgt
-                    <span class="right badge badge-danger">New</span>
                     </p>
-                </a>
+                </router-link>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-th"></i>
+            <li class="nav-item py-2">
+              <router-link to="/customers_mgt"  class="nav-link text-white">
+                  <i class="nav-icon fas fa-people-carry"></i>
                   <p>
                     View Customers
-                    <span class="right badge badge-danger">New</span>
                   </p>
-                </a>
+                </router-link>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-th"></i>
+            <li class="nav-item py-2">
+              <router-link to="/users_mgt"  class="nav-link text-white">
+                  <i class="nav-icon fas fa-users-cog"></i>
                   <p>
-                    User Mgt
-                    <span class="right badge badge-danger">New</span>
+                    User Accounts
                   </p>
-                </a>
+                </router-link>
             </li>
+            <li class="nav-item py-2">
+              <a href="{{ route('logout')}}" class="nav-link text-white"
+              onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();">
+                <i class="nav-icon fas fa-power-off"></i>
+                <p>
+                  {{ __('Log Out')}}
+                </p>
+              </a>
+              <form id="logout-form" action="{{ route('logout')}}" method="POST" style="display:none;">
+                @csrf
+              </form>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -116,11 +125,11 @@
 <div class="content-wrapper bg-wallColor">   
   <!-- Main content -->
   <div class="content">
-    <div class="container-fluid" id="app">
+    <div class="container-fluid">
         <!-- for example router view -->
         <router-view></router-view>
         
-        
+
     </div>        <!-- /.row -->
   </div><!-- /.container-fluid -->
 </div>

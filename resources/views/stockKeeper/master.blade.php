@@ -1,4 +1,4 @@
-@extends('layouts.managerLayout')
+@extends('layouts.panelLayout')
 
 @section('masterContent')
 <div class="wrapper" id="app">

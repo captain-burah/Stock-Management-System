@@ -13,14 +13,14 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+}); 
 
 Auth::routes();
 
 //--------Login Page routes
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/manager-login', 'HomeController@manager')->name('manager-login');
-Route::get('/stockKeeper-login', 'HomeController@stockKeeper')->name('stockKeeper-login');
+Route::get('/tockKeeper-login', 'HomeController@stockKeeper')->name('stockKeeper-login');
 Route::get('/cashier-login', 'HomeController@cashier')->name('cashier-login');
 //--------Login Page routes
 
@@ -46,3 +46,6 @@ Route::middleware(['auth:storeKeeper'])->group(function () {
 Route::middleware(['auth:cashier'])->group(function () { 
     Route::get('/cashier_panel', 'CashierController@dashboard')->name('cashier-dash');
 });
+
+
+Route::get('{path}','HomeController@index')->where( 'path', '([A-z\d\-\/_.]+)?' );

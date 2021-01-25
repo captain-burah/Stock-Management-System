@@ -29,13 +29,13 @@ class HomeController extends Controller
 
     public function stockKeeper()
     {
-        $user = 'stockKeeper';
+        //$user = 'stockKeeper';
         return view('auth.login', ['user' => 'stockKeeper']);
     }
 
     public function cashier()
     {
-        $user = 'cashier';
+        //$user = 'cashier';
         return view('auth.login', ['user' => 'cashier']);
     }
 }
