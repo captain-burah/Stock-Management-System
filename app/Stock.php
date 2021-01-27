@@ -11,7 +11,7 @@ class Stock extends Model
     protected $table = 'stocks';
     protected $fillable = 
     [
-        'name', 'size', 'quantity', 'color', 'category', 'branch_id'
+        'name', 'size', 'quantity', 'color', 'category', 'brand_id', 'unit_price'
     ];
 
     public function sale() 

@@ -21,6 +21,7 @@ class CreateStocksTable extends Migration
             $table->string('color');
             $table->string('category');
             $table->string('brand_id');
+            $table->string('unit_price');
 
             $table->timestamps();
         });

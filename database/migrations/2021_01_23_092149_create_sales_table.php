@@ -18,7 +18,8 @@ class CreateSalesTable extends Migration
             $table->timestamp('saleTime');
             $table->unsignedInteger('stock_id');
             $table->unsignedInteger('customer_id');
-            $table->integer('quantity');
+            $table->string('quantity');
+            $table->string('total_price');
             
             $table->primary(['cashier_id', 'saleTime']);
             

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
 class Sale extends Model
@@ -9,7 +10,7 @@ class Sale extends Model
     protected $table = 'sale';
     protected $fillable = 
     [
-        'quantity'
+        'quantity', 'unit_price', 'total_price'
     ];
 
 

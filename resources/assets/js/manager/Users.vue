@@ -1,23 +1,24 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card card-default">
-                    <div class="card-header">User Component</div>
-
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
-                </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <managers></managers>
+            </div>
+            <div class="col-md-12">
+                <store-keepers></store-keepers>
+            </div>
+            <div class="col-md-12">
+                <cashiers></cashiers>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import cashiers from "./subComponents/cashiers.vue"
+import managers from './subComponents/managers.vue'
+
     export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
+        components: { cashiers, managers }
     }
 </script>

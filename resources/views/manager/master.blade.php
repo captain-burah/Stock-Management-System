@@ -10,11 +10,9 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <span class="nav-link"> You can manage all your stocks, sales, customers and employees from this prestigious panel.</span>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
+
     </ul>
 
   </nav>
@@ -23,7 +21,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link  text-center">
+    <a href="#" class="brand-link  text-center">
       <span class="brand-text font-weight-light">Management Panel</span>
     </a>
 
@@ -70,7 +68,7 @@
             </li>
             -->
             <li class="nav-item py-1">
-              <router-link to="/sales_mgt" class="nav-link text-white">
+              <router-link to="/manager_panel" class="nav-link text-white">
                 <i class="nav-icon fas fa-dollar-sign"></i>
                 <p>
                   Sales Mgt
@@ -124,12 +122,12 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper bg-wallColor">   
   <!-- Main content -->
-  <div class="content">
+  <div class="content-header">
     <div class="container-fluid">
         <!-- for example router view -->
         <router-view></router-view>
         
-
+        <vue-progress-bar></vue-progress-bar>
     </div>        <!-- /.row -->
   </div><!-- /.container-fluid -->
 </div>
