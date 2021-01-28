@@ -18,8 +18,9 @@ class CreateSalesTable extends Migration
             $table->timestamp('saleTime');
             $table->unsignedInteger('stock_id');
             $table->unsignedInteger('customer_id');
-            $table->string('quantity');
-            $table->string('total_price');
+            $table->integer('quantity')->lenght(10)->unsigned();
+            $table->integer('total_price')->lenght(10)->unsigned();
+            $table->timestamps();
             
             $table->primary(['cashier_id', 'saleTime']);
             
@@ -33,8 +34,7 @@ class CreateSalesTable extends Migration
 
             $table->foreign('customer_id')
                 ->references('id')->on('customers')
-                ->onDelete('cascade');;
-            
+                ->onDelete('cascade');
         });
     }
 

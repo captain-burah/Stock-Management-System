@@ -47,6 +47,7 @@ require('./bootstrap');
     Vue.use(VueRouter)
     let routes = [
         {path: '/manager_panel', component:  require('./manager/Sales.vue') },
+        {path: '/cashier_panel', component:  require('./manager/subComponents/cashierSales.vue') },
         {path: '/stocks_mgt', component:  require('./manager/Stocks.vue') },
         {path: '/customers_mgt', component:  require('./manager/Customers.vue') },
         {path: '/users_mgt', component:  require('./manager/Users.vue') }
@@ -84,6 +85,10 @@ Vue.component(
 Vue.component(
     'stocks',
     require('./manager/subComponents/stocks.vue')
+);
+Vue.component(
+    'sales',
+    require('./manager/subComponents/sales.vue')
 );
 //---  Vue Components ---------------------------------------------------------->
 

@@ -69,57 +69,27 @@
               </ul>
             </li>
             -->
-            <li class="nav-item py-1 has-treeview menu-open">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-cog"></i>
+            <li class="nav-item py-2">
+              <router-link to="/cashier_panel"  class="nav-link text-white">
+                <i class="nav-icon fas fa-dollar-sign"></i>
                   <p>
-                    Stock Mgt
-                    <i class="right fas fa-angle-left"></i>
+                    Manage Sales
                   </p>
-                </a>
-                <ul class="nav nav-treeview" style="display: block;">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link offset-sm-1">
-                      <i class="fas fa-plus-circle nav-icon"></i>
-                      <p>Add Stocks</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link offset-sm-1">
-                      <i class="fas fa-edit nav-icon"></i>
-                      <p>Update Stocks</p>
-                    </a>
-                  </li>
-                </ul>
+                </router-link>
             </li>
-            <li class="nav-item py-1 has-treeview menu-open">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>
-                    Sales Mgt
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview" style="display: block;">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link offset-sm-1">
-                      <i class="fas fa-plus-circle nav-icon"></i>
-                      <p>Add Sales</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link offset-sm-1">
-                      <i class="fas fa-edit nav-icon"></i>
-                      <p>Update Sales</p>
-                    </a>
-                  </li>
-                </ul>
+            <li class="nav-item py-1">
+              <router-link to="/stocks_mgt" class="nav-link text-white">
+                <i class="nav-icon fas fa-palette "></i>
+                <p>
+                  Manage Stocks
+                </p>
+              </router-link>
             </li>
             <li class="nav-item py-2">
               <router-link to="/customers_mgt"  class="nav-link text-white">
                   <i class="nav-icon fas fa-eye"></i>
                   <p>
-                    Customers
+                    Manage Customers
                   </p>
                 </router-link>
             </li>

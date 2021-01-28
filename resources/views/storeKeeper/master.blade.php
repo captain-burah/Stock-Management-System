@@ -70,28 +70,12 @@
             </li>
             -->
             <li class="nav-item py-1">
-              <router-link to="/sales_mgt" class="nav-link text-white">
+              <router-link to="/stocks_mgt" class="nav-link text-white">
                 <i class="nav-icon fas fa-eye"></i>
                 <p>
                   View Stocks
                 </p>
               </router-link>
-            </li>
-            <li class="nav-item py-2">
-              <router-link to="/stocks_mgt"  class="nav-link text-white">
-                    <i class="nav-icon fas fa-plus-circle "></i>
-                    <p>
-                    Add Stocks
-                    </p>
-                </router-link>
-            </li>
-            <li class="nav-item py-2">
-              <router-link to="/customers_mgt"  class="nav-link text-white">
-                  <i class="nav-icon fas fa-edit"></i>
-                  <p>
-                    Update Stocks
-                  </p>
-                </router-link>
             </li>
             <li class="nav-item py-2">
               <a href="{{ route('logout')}}" class="nav-link text-white"

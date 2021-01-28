@@ -17,11 +17,11 @@ class CreateStocksTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('size');
-            $table->string('quantity');            
+            $table->integer('quantity')->lenght(10)->unsigned();
             $table->string('color');
             $table->string('category');
             $table->string('brand_id');
-            $table->string('unit_price');
+            $table->integer('unit_price')->lenght(10)->unsigned();
 
             $table->timestamps();
         });

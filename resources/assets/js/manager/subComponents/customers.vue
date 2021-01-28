@@ -192,7 +192,7 @@
         },
         created() { 
             this.loadUsers();
-            setInterval(() => this.loadUsers(), 5000);
+            //setInterval(() => this.loadUsers(), 5000);
         },
         mounted() {
             console.log('Management component mounted.')

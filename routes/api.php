@@ -23,3 +23,4 @@ Route::apiResources(['manager' => 'API\ManagerController']);
 Route::apiResources(['sale' => 'API\SaleController']);
 Route::apiResources(['customer' => 'API\CustomerController']);
 Route::apiResources(['stock' => 'API\StockController']);
+Route::get('findStock', 'API\StockController@searchStock');

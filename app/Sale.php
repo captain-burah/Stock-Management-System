@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sale extends Model
 {
-    protected $table = 'sale';
+    protected $table = ['sales'];
     protected $fillable = 
     [
-        'quantity', 'unit_price', 'total_price'
+        'cashier_id', 'stock_id', 'customer_id', 'quantity', 'total_price'
     ];
-
+    
 
     public function cashier()
     {

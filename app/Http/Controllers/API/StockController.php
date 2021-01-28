@@ -30,11 +30,11 @@ class StockController extends Controller
         $this->validate($request, [
             'name'  => 'required|string|max:191',
             'size'  => 'required|string|max:191',
-            'quantity'  => 'required|string|max:191',
+            'quantity'  => 'required|integer',
             'color'  => 'required|string|max:191',
             'category'  => 'required|string|max:191',
             'brand_id'  => 'required|string|max:191',
-            'unit_price'  => 'required|string|max:191',
+            'unit_price'  => 'integer',
         ]);
         return Stock::create([
             'name' => $request['name'],
@@ -72,11 +72,11 @@ class StockController extends Controller
         $this->validate($request, [
             'name'  => 'required|string|max:191',
             'size'  => 'required|string|max:191',
-            'quantity'  => 'required|string|max:191',
+            'quantity'  => 'required',
             'color'  => 'required|string|max:191',
             'category'  => 'required|string|max:191',
             'brand_id'  => 'required|string|max:191',
-            'unit_price'  => 'required|string|max:191',
+            'unit_price'  => 'integer',
         ]);
 
         $user->update($request->all());
@@ -95,5 +95,16 @@ class StockController extends Controller
         $user = Stock::findOrFail($id);
         $user->delete();
         return ['message' => 'User Deleted'];
+    }
+
+    public function searchStock(){
+        if ($search = \Request::get('q')){
+            $stocks = Stock::select('*')->where('id', $search)->first();
+
+            //$stocks = Stock::select('unit_price')->where(function($query) use ($search){
+            //    $query->where('id', '=', "%$search%");
+            //})->first();
+        }
+        return $stocks;
     }
 }
